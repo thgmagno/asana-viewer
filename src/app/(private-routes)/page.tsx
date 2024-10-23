@@ -1,5 +1,7 @@
 import { getData, getKeys } from '@/action'
+import { DataTable } from '@/components/dataTable'
 import { SelectDate } from '@/components/SelectDate'
+import { columns } from './columns'
 
 export default async function Home({
   searchParams,
@@ -14,6 +16,7 @@ export default async function Home({
   return (
     <main>
       <SelectDate options={keys} />
+      <DataTable columns={columns} data={data || []} />
     </main>
   )
 }

@@ -69,10 +69,10 @@
     @apply border-border;
   }
   body {
-    @apply bg-zinc-800 text-foreground;
+    @apply bg-zinc-100 text-foreground;
   }
   main {
-    @apply max-w-7xl mx-auto bg-zinc-900 min-h-screen p-20 pb-40 space-y-6;
+    @apply max-w-7xl mx-auto min-h-screen space-y-6 p-12 md:p-20 pb-28 md:pb-40;
   }
   h1 {
     @apply text-white text-2xl font-semibold my-5
