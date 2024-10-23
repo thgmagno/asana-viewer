@@ -35,8 +35,10 @@ export const columns: ColumnDef<Task>[] = [
       <DataTableColumnHeader column={column} title="Criado em" />
     ),
     cell: ({ row }) => {
-      const createdAt = row.getValue('created_at')
-      return new Date(String(createdAt)).toLocaleDateString()
+      const createdAt = new Date(
+        String(row.getValue('created_at')),
+      ).toLocaleDateString()
+      return <span>{createdAt}</span>
     },
   },
   {
