@@ -1,4 +1,5 @@
 import { getData, getKeys } from '@/action'
+import { SelectDate } from '@/components/SelectDate'
 
 export default async function Home({
   searchParams,
@@ -10,5 +11,9 @@ export default async function Home({
     getData(searchParams.date),
   ])
 
-  return <main></main>
+  return (
+    <main>
+      <SelectDate options={keys} />
+    </main>
+  )
 }

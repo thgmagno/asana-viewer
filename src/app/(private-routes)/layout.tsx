@@ -1,4 +1,4 @@
-import { synchronize } from '@/action'
+import { synchronize } from '@/action/services'
 
 export default async function PrivateLayout({
   children,
