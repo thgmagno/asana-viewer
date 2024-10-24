@@ -75,6 +75,6 @@
     @apply max-w-7xl mx-auto min-h-screen space-y-6 pt-12 px-3 md:p-20 pb-28 md:pb-40;
   }
   h1 {
-    @apply text-white text-2xl font-semibold my-5
+    @apply text-2xl font-semibold my-5
   }
 }

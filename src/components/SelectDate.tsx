@@ -18,16 +18,18 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 export function SelectDate({ options }: { options: string[] }) {
+  const searchParams = useSearchParams()
   const pathname = usePathname()
   const { replace } = useRouter()
 
   const currentDate = new Date()
   const currentYear = currentDate.getFullYear()
   const currentMonth = String(currentDate.getMonth() + 1).padStart(2, '0')
-  const defaultValue = `${currentYear}-${currentMonth}`
+  const defaultValue =
+    searchParams.get('date') || `${currentYear}-${currentMonth}`
 
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState(defaultValue)
@@ -42,12 +44,13 @@ export function SelectDate({ options }: { options: string[] }) {
 
   const handleChange = (newValue: string) => {
     setOpen(false)
+    const params = new URLSearchParams(searchParams)
     if (newValue === defaultValue) {
       setValue(defaultValue)
+      params.delete('date')
       return replace(pathname)
     } else {
       setValue(newValue)
-      const params = new URLSearchParams()
       params.set('date', newValue)
 
       replace(`${pathname}?${params.toString()}`)

@@ -54,5 +54,5 @@ export async function synchronize() {
 }
 
 export async function forceSynchronize() {
-  return kv.del('asana-api-sync').then(() => synchronize())
+  kv.del('asana-api-sync').then(() => synchronize())
 }

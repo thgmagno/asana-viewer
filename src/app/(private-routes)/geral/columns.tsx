@@ -87,7 +87,7 @@ export const columns: ColumnDef<Task>[] = [
             <DropdownMenuLabel>Ações</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href={`/task?id=${task.gid}`}>Visualizar</Link>
+              <Link href={`/geral/${task.gid}`}>Visualizar</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

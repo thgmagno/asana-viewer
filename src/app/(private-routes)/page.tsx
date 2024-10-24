@@ -1,22 +1,12 @@
-import { getData, getKeys } from '@/action'
-import { DataTable } from '@/components/dataTable'
-import { SelectDate } from '@/components/SelectDate'
-import { columns } from './columns'
+import { ForceSync } from '@/components/ForceSync'
+import Link from 'next/link'
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: { date: string }
-}) {
-  const [keys, data] = await Promise.all([
-    getKeys(),
-    getData(searchParams.date),
-  ])
-
+export default async function Home() {
   return (
     <main>
-      <SelectDate options={keys} />
-      <DataTable columns={columns} data={data || []} />
+      <h1>Home</h1>
+      <ForceSync />
+      <Link href="/geral">Geral</Link>
     </main>
   )
 }
